@@ -102,7 +102,7 @@ include:
 #    cmake-args: -DCONFIG_ZMK_STUDIO=y
 #    artifact-name: k03_qube_ruen-ergohaven-zmk
 #  - board: ergohaven
-    shield: k03_left_qube
+#    shield: k03_left_qube
 
 #  - board: ergohaven
 #    shield: imperial44_left
