@@ -1,25 +1,9 @@
-name: Build OP-36 Firmware
+name: Build OP-36 Firmware  
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build-op36:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: ZMK Setup
-      uses: zmkfirmware/zmk-action@main
-      
-    - name: Build OP-36 Left
-      run: |
-        west build -b op-36_left -- -DSHIELD=op36 -DCONFIG_ZMK_CONFIG=config/op36.conf
-      
-    - name: Build OP-36 Right  
-      run: |
-        west build -b op-36_right -- -DSHIELD=op36 -DCONFIG_ZMK_CONFIG=config/op36.conf
-      
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: firmware-op36
-        path: build/zephyr/zmk_*.uf2
+    uses: ergohaven/ergohaven-zmk/.github/workflows/build-user-config.yml@main
+    with:
+      shields: op-36_left,op-36_right
+      config-files: op36.conf
