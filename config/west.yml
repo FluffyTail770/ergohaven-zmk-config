@@ -1,10 +1,12 @@
 manifest:
-  defaults:
-    remote: ergohaven
+  remotes:
+    - name: ergohaven
+      url-base: https://github.com/ergohaven
   projects:
     - name: ergohaven-zmk
+      remote: ergohaven
       revision: main
-      import: app/west.yml
-  shields:
-    - op-36
+      import: config/west.yml
+  self:
+    path: config 
 
